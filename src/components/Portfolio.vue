@@ -1,7 +1,7 @@
 <template>
 <div>
     <div class="body">
-        <header id="header" class="header-floating " data-plugin-options="{'stickyEnabled': false, 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 0, 'stickySetTop': '60px', 'stickyChangeLogo': false}">
+        <header id="header" class="header-floating wow bounceInUp" data-plugin-options="{'stickyEnabled': false, 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 0, 'stickySetTop': '60px', 'stickyChangeLogo': false}">
             <div class="header-body">
                 <div class="header-container container">
                     <div class="header-row">
@@ -82,19 +82,19 @@
                             />
                         </div>
                         <div class="col-md-8 col-sm-8 text-left">
-                            <h1 class="text-color-primary custom-font-size-1">{{ user.userInfor.name }}</h1>
-                            <p class="text-color-light font-weight-normal custom-font-size-2 custom-margin-bottom-1">{{ user.userInfor.specialized }}</p>
-                            <span class="custom-about-me-infos">
+                            <h1  class="wow fadeInUp text-color-primary custom-font-size-1">{{ user.userInfor.name }}</h1>
+                            <p data-wow-delay="0.2s" class="wow fadeInUp text-color-light font-weight-normal custom-font-size-2 custom-margin-bottom-1">{{ user.userInfor.specialized }}</p>
+                            <span data-wow-delay="0.3s" class="wow fadeInUp custom-about-me-infos">
                
-                            <span class="custom-text-color-1 text-uppercase mb-md">Information Technology &amp; Services</span>
-                            <span class="custom-text-color-1 text-uppercase">
+                            <span data-wow-delay="0.4s" class="wow fadeInUp custom-text-color-1 text-uppercase mb-md">Information Technology &amp; Services</span>
+                            <span data-wow-delay="0.5s" class="wow fadeInUp custom-text-color-1 text-uppercase">
                     <strong class="text-color-light">Previous: </strong>
                    {{ user.userInfor.previous }}
                     <a data-hash
                        href="#experience"
                        class="btn btn-tertiary text-uppercase custom-btn-style-1 text-xs ml-sm">View More</a>
                   </span>
-                            <span class="custom-text-color-1 text-uppercase">
+                            <span data-wow-delay="0.6s" class="wow fadeInUp custom-text-color-1 text-uppercase">
                     <strong class="text-color-light">Education: </strong>
                    {{ user.userInfor.education }}
                     <a data-hash
@@ -146,17 +146,17 @@
                 </a>
                         </div>
                         <div class="col-md-3 col-sm-4 center p-none">
-                            <a href="#" class="text-decoration-none">
+                            <a href="#skills" class="text-decoration-none">
                   <span class="custom-nav-button text-color-dark">
-                    <i class="icon-cloud-download icons text-color-primary"></i>
-                    Download Resume
+                    <i class="icon-note icons text-color-primary"></i>
+                    Skills and Languages
                   </span>
                 </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <section class="section section-no-border background-color-light m-none">
+            <section class="wow fadeInUp section section-no-border background-color-light m-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-left ">
@@ -208,25 +208,16 @@
 
                             <h2 class="text-color-quaternary font-weight-extra-bold text-uppercase">About Me</h2>
 
-                            <p class="custom-text-color-2">Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio
-                                dui.
+                            <p class="custom-text-color-2"> {{user.userInfor.aboutMe}}
                             </p>
 
-                            <div class="about-me-more" id="aboutMeMore">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt nulla tortor, a imperdiet enim tristique nec. Nulla lobortis leo eget metus dapibus sodales. Sed placerat vitae dui vitae vehicula. Quisque in tincidunt
-                                    ligula, nec dignissim arcu. Praesent aliquam velit vel libero dictum, non sollicitudin lectus mollis. Morbi sollicitudin auctor gravida. Vivamus vitae dui non lorem euismod pretium. Morbi congue sem sed ex iaculis,
-                                    nec mattis felis pretium. Nullam molestie libero id odio blandit sodales. Suspendisse non mauris et felis molestie placerat aliquet a risus. Aliquam ac leo tempus, hendrerit eros mollis, gravida est.
-                                </p>
-
-                                <p>Proin euismod ipsum a tellus condimentum dapibus. Integer porttitor felis elit, eget rutrum ligula commodo quis. Praesent ultricies neque eu mi congue blandit. Nulla feugiat feugiat aliquet. Morbi sed mattis erat. Nullam
-                                    scelerisque molestie eros, id tristique felis iaculis non. Duis pellentesque neque eget iaculis varius. Donec at nisl semper, aliquam est id, tincidunt lacus. Donec at erat purus.</p>
-
-                                <p>Morbi tincidunt nunc non diam porta, at fermentum orci bibendum. Donec arcu nisi, ornare nec commodo vitae, sollicitudin sed magna. Cras sit amet justo et nulla pulvinar laoreet. Phasellus scelerisque, metus id posuere
-                                    vulputate, diam tellus iaculis sapien, eget scelerisque ipsum libero convallis velit. Duis lorem ligula, faucibus quis tellus nec, fringilla ultricies leo. Etiam tempus congue magna. Suspendisse porta dictum tortor,
-                                    eu volutpat ipsum eleifend nec. Aliquam dapibus lorem luctus, cursus libero imperdiet, mattis nunc. Sed in ipsum diam. Quisque efficitur metus purus, vitae fermentum lacus venenatis id.</p>
+                            <div style="display: none" id="aboutMeMore">
+                               <p v-for="item in user.userInfor.aboutMeMore" :key="user.userInfor.aboutMeMore.indexOf(item)">
+                                   {{item.content}}
+                               </p>
                             </div>
 
-                            <a id="aboutMeMoreBtn" class="btn btn-tertiary text-uppercase custom-btn-style-1 text-xs">View More</a>
+                            <a v-on:click="showMore()" id="aboutMeMoreBtn" class="btn btn-tertiary text-uppercase custom-btn-style-1 text-xs">View More</a>
 
                         </div>
                     </div>
@@ -235,12 +226,12 @@
             <section id="experience" class="section section-secondary section-no-border m-none">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 text-left">
+                        <div class="col-md-12 col-sm-12 text-left">
                             <h2 class="text-color-quaternary text-uppercase font-weight-extra-bold">Experience</h2>
                             <section class="timeline custom-timeline" id="timeline">
                                 <div class="timeline-body">
-                                    <article v-for="item in user.experiences" :key="user.experiences.indexOf(item)" class="timeline-box right custom-box-shadow-2">
-                                        <div class="experience-info col-md-3 col-sm-5 match-height background-color-primary">
+                                    <article v-for="item in user.experiences"  :key="user.experiences.indexOf(item)" class="wow fadeInRight timeline-box right custom-box-shadow-2">
+                                        <div style="height: 212.4px!important;" class="experience-info col-md-3 col-sm-5 match-height background-color-primary">
                                             <span class="from text-color-dark text-uppercase">From
                           <span class="font-weight-semibold">{{ item.from }}</span>
                                             </span>
@@ -253,9 +244,9 @@
                           <span class="company-location text-color-dark font-weight-normal text-uppercase">{{ item.located }}</span>
                                             </span>
                                         </div>
-                                        <div class="experience-description col-md-9 col-sm-7 match-height background-color-light">
+                                        <div style="height: 212.4px!important;" class="experience-description col-md-9 col-sm-7 match-height background-color-light">
                                             <h4 class="text-color-dark font-weight-semibold">{{ item.job }}</h4>
-                                            <p class="custom-text-color-2">{{ item.subcription }}</p>
+                                            <p class="custom-text-color-2">{{ item.description }}</p>
                                         </div>
                                     </article>
 
@@ -266,7 +257,7 @@
                     </div>
                 </div>
             </section>
-            <section id="education" class="section section-no-border custom-background-color-1 m-none">
+            <section id="education" class="wow bounceInUp section section-no-border custom-background-color-1 m-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -288,10 +279,10 @@
                     </div>
                 </div>
             </section>
-            <section id="skills" class="section section-no-border background-color-light m-none">
+            <section id="skills" class="wow fadeInUp section section-no-border background-color-light m-none">
                 <div class="container">
                     <div class="row custom-sm-flex-order">
-                        <div class="col-md-8 col-sm-6 col-xs-12">
+                        <div data-wow-delay="0.5s" class="wow bounceInLeft col-md-8 col-sm-6 col-xs-12">
                             <h2 class="text-color-quaternary text-uppercase font-weight-extra-bold text-left" style="margin-bottom: 32px!important">Skills & Language</h2>
                             <div class="progress-bars custom-progress-bars row">
                                 <div class="col-md-6 col-xs-12" v-for="item in user.skills" :key="user.skills.indexOf(item)">
@@ -305,23 +296,8 @@
 
                             </div>
                         </div>
-                        <!-- <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="progress-bars custom-progress-bars custom-md-margin-top-1">
-                                <div class="progress-label text-color-dark font-weight-semibold text-uppercase text-sm">
-                                    <span>Javascript</span>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" data-appear-progress-animation="60%"></div>
-                                </div>
-                                <div class="progress-label text-color-dark font-weight-semibold text-uppercase text-sm">
-                                    <span>Business</span>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar" data-appear-progress-animation="80%" data-appear-animation-delay="300"></div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                       
+                        <div data-wow-delay="0.5s" class="wow bounceInRight col-md-4 col-sm-6 col-xs-12">
                             <div class="custom-box-details background-color-light custom-box-shadow-1 text-left">
                                 <h4 class="text-color-dark">Languages</h4>
                                 <ul class="custom-list-style-1 p-none">
@@ -344,12 +320,12 @@
                     </div>
                 </div>
             </section>
-            <section id="portfolio" class="section section-no-border background-color-secondary m-none">
+            <section id="portfolio"  class="wow fadeInUp section section-no-border background-color-secondary m-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h2 class="text-color-quaternary font-weight-extra-bold text-uppercase text-left">Portfolio</h2>
-                            <ul class="nav nav-pills sort-source custom-nav-sort mb-xlg" data-sort-id="portfolio" data-option-key="filter">
+                            <h2 data-wow-delay="0.5s" class=" wow fadeInUp text-color-quaternary font-weight-extra-bold text-uppercase text-left">Portfolio</h2>
+                            <ul data-wow-delay="0.75s" class=" wow fadeInUp nav nav-pills sort-source custom-nav-sort mb-xlg" data-sort-id="portfolio" data-option-key="filter">
                                 <li data-option-value="*" class="active">
                                     <a href="#">Show All</a>
                                 </li>
@@ -363,7 +339,7 @@
                                     <a href="#">Alibaba English Club</a>
                                 </li>
                             </ul>
-                            <div class="row">
+                            <div data-wow-delay="1s"  class="row wow fadeInUp">
                                 <div class="sort-destination-loader sort-destination-loader-showing">
                                     <ul class="image-gallery sort-destination lightbox" data-sort-id="portfolio" data-plugin-options="{'delegate': 'a.lightbox-portfolio', 'type': 'image', 'gallery': {'enabled': true}}">
 
@@ -487,7 +463,7 @@
                 </div>
             </section>
 
-            <section id="recommendations" class="section section-no-border background-color-primary m-none">
+            <section id="recommendations" class=" wow flipInX section section-no-border background-color-primary m-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-left">
@@ -517,7 +493,7 @@
                 </div>
             </section>
 
-            <section id="blog" class="section section-no-border background-color-light m-none">
+            <section id="blog" class="wow fadeInUp section section-no-border background-color-light m-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -578,7 +554,7 @@
             <div id="say-hello" class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 p-none">
-                        <section class="section section-no-border match-height background-color-primary m-none">
+                        <section class=" wow fadeInLeft section section-no-border match-height background-color-primary m-none">
                             <div class="row m-none">
                                 <div class="col-half-section col-half-section-right mr-md">
                                     <h2 class="text-color-quaternary text-uppercase font-weight-extra-bold">Say Hello</h2>
@@ -601,7 +577,7 @@
                         </section>
                     </div>
                     <div class="col-md-6 p-none text-left">
-                        <section class="section section-no-border match-height m-none" style=" background: url(http://www.portotheme.com/wordpress/porto/resume/wp-content/uploads/sites/73/2017/02/contact-bg-1.jpg?id=50); background-size: cover; height: 433.6px;">
+                        <section class=" wow fadeInRight section section-no-border match-height m-none" style=" background: url(http://www.portotheme.com/wordpress/porto/resume/wp-content/uploads/sites/73/2017/02/contact-bg-1.jpg?id=50); background-size: cover; height: 433.6px;">
                             <div class="row m-none">
                                 <div class="col-half-section col-half-section-left ml-md">
                                     <a href="mailto:you@domain.com" class="text-decoration-none">
@@ -654,71 +630,95 @@
 </template>
 
 <script>
+import WOW from 'wow.js/dist/wow.js';
+new WOW().init();
 export default {
   data: () => ({
     user: {
       userInfor: {
-        name: 'Nguyễn Thành Trung',
+        name: 'Nguyen Thanh Trung',
         specialized: 'Web Developer',
-        previous: 'Front-end Developer',
-        education: 'Trường đại học Công Nghiệp Hà Nội',
-        birthday: '19-09-1997',
-        marital: 'Độc thân',
-        nationality: 'Việt Nam',
+        previous: 'Web Developer',
+        education: 'Hanoi University of Industry',
+        birthday: '09-19-1997',
+        marital: 'Single',
+        nationality: 'Vietnam',
         skype: '',
         phone: '0984-318-297',
         email: 'nt.naisha.trung@gmail.com',
-        aboutMe: 'Hello! My name is Trung. I am 21 years old.',
-        aboutMeMore: '',
+        aboutMe: 'Hello! My name is Trung. I was born in 1997. Now I am learning at Hanoi University of Industry and having a partime job as a Web developer ',
+        aboutMeMore: [
+          {
+            content:
+              'My philosophy: "Life is not trying to find the good things. Life is trying to make to be good first. And after that, everything good will comes and say hello to you".'
+          },
+          {
+            content:
+              'I often play Overwatch - one of the famous games in the world. My friends is come from all over the world so I can practice my English skill, and learn their culture.'
+          },
+          {
+            content:
+              'In the future: I will save my money for a trip to another country. About 1 or 2 months for travelling and learning the news. After that I will come back my country and start-up. I will not work as a staff forever.'
+          }
+        ],
         facebook: 'https://www.facebook.com/ntt.naisha?ref=bookmarks'
       },
       experiences: [
         {
+          delay: '0.25s',
           from: '2016',
           to: '2017',
           company: 'HIT-Club',
-          located: 'Hà Nam',
+          located: 'Ha Nam',
           job: 'Support C',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt nulla tortor, a imperdiet enim tristique nec. Nulla lobortis leo eget metus dapibus sodales. Sed placerat vitae dui vitae vehicula. Quisque in tincidunt ligula, nec dignissim arcu.'
+            'This is a big change of my life. I got many helps from HIT Club so that was a chance for me to help another people. I also got many skills from that such as presentation, communication, ...'
         },
         {
+          delay: '0.55s',
           from: '2017',
-          to: '2018',
-          company: 'HIT-Club',
-          located: 'Hà Nội',
-          job: 'Leader English/ Web',
+          to: '2017',
+          company: '3F Group',
+          located: 'Ha Noi',
+          job: 'Intership',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt nulla tortor, a imperdiet enim tristique nec. Nulla lobortis leo eget metus dapibus sodales. Sed placerat vitae dui vitae vehicula. Quisque in tincidunt ligula, nec dignissim arcu.'
+            'That time was not too long. I learned HTML, CSS from 3F. But the most important thing is how to use the time efficiently and work seriously.'
         },
         {
+          delay: '0.75s',
           from: '2017',
           to: '2018',
-          company: 'Công ty cổ phần công nghệ AIB Việt Nam',
-          located: 'Hà Nội',
+          company: 'AIB Technology Joint Stock Company',
+          located: 'Ha Noi',
           job: 'Web Developer',
           description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt nulla tortor, a imperdiet enim tristique nec. Nulla lobortis leo eget metus dapibus sodales. Sed placerat vitae dui vitae vehicula. Quisque in tincidunt ligula, nec dignissim arcu.'
+            'AIB company is where I learn almost knowledge. For example: Angular 5+, Vue.JS, Laravel, Next.JS, Socket.IO, ... . It is good environment for practice and learn. I have been finished 4 projects here.'
         }
       ],
       educations: [
         {
-          located: 'Trường đại học Công Nghiệp Hà Nội',
-          class: 'Ngành công nghệ thông tin',
+          located: 'Hanoi University of Industry',
+          class: 'Information Technology',
           from: '2016',
           to: '2018'
         },
         {
-          located: 'Trường THCS và THPT Hai Bà Trưng',
+          located: 'Hai Ba Trung High school ',
           class: '12A3',
-          from: '2007',
+          from: '2014',
           to: '2016'
+        },
+        {
+          located: 'Hai Ba Trung Secondary School',
+          class: '9A2',
+          from: '2007',
+          to: '2014'
         }
       ],
       skills: [
         {
-          name: 'JavaScript',
-          percent: '70%'
+          name: 'Next.JS',
+          percent: '60%'
         },
         {
           name: 'HTML & CSS',
@@ -744,49 +744,50 @@ export default {
       languages: [
         {
           language: 'English',
-          level: 'Giao tiếp',
+          level: 'Communication',
           img: ''
         },
         {
           language: 'Vietnamese',
-          level: 'Giao tiếp',
+          level: 'Communication',
           img: ''
         }
       ],
       recommendations: [
         {
-          message:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt nulla tortor, a imperdiet enim tristique nec. Nulla lobortis leo eget metus dapibus sodales. Sed placerat vitae dui vitae vehicula. Quisque in tincidunt ligula, nec dignissim arcu.',
-          author: 'Naisha',
-          duty: 'Coder'
+          message: 'He is a good man. But his defect is always care about the feeling of the others .',
+          author: 'Cuc Nguyen',
+          duty: 'Classmate'
         },
         {
-          message:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam tincidunt nulla tortor, a imperdiet enim tristique nec. Nulla lobortis leo eget metus dapibus sodales. Sed placerat vitae dui vitae vehicula. Quisque in tincidunt ligula, nec dignissim arcu.',
-          author: 'Naisha',
-          duty: 'Coder'
+          message: 'He is like a diamond. The value is deep inside. Someone has to find and raise his ability if he can not do himself',
+          author: 'Le Quang Huy',
+          duty: 'Classmate'
         }
       ],
       notes: [
         {
-          img:
-            'https://jquery-plugins.net/image/plugin/airbnb-javascript-style-guide.png',
+          img: 'https://jquery-plugins.net/image/plugin/airbnb-javascript-style-guide.png',
           title: 'JavaScript Style Guide',
-          content:
-            'Các quy tắc JavaScript, ES 6, React theo đúng chuẩn. Tối ưu hóa code, tránh các lỗi ảnh hưởng đến hiệu năng của website [...]',
+          content: 'A mostly reasonable approach to JavaScript. Code clear and performance [...]',
           link: 'https://github.com/airbnb/javascript'
         },
         {
-          img:
-            'https://jquery-plugins.net/image/plugin/airbnb-javascript-style-guide.png',
-          title: 'JavaScript Style Guide',
+          img: 'https://raw.githubusercontent.com/alexeymezenin/laravel-best-practices/master/images/logo-english.png',
+          title: 'Laravel Style Guide',
           content:
-            'Các quy tắc JavaScript, ES 6, React theo đúng chuẩn. Tối ưu hóa code, tránh các lỗi ảnh hưởng đến hiệu năng của website [...]',
-          link: 'https://github.com/airbnb/javascript'
+            'It is not a Laravel adaptation of SOLID principles, patterns etc. Here you will find the best practices which are usually ignored in real life Laravel projects. [...]',
+          link: 'https://github.com/alexeymezenin/laravel-best-practices'
         }
       ]
     }
-  })
+  }),
+  methods: {
+    showMore() {
+      document.getElementById('aboutMeMoreBtn').style.display = 'none';
+      document.getElementById('aboutMeMore').style.display = 'block';
+    }
+  }
 };
 </script>
 
