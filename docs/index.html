@@ -41,10 +41,13 @@
 </head>
 
 <body style="position: relative;" data-spy=scroll data-target=.wrapper-spy>
+  <iframe src=music.mp3 allow="autoplay" style="display:none" id="iframeAudio">
+</iframe> 
   <audio style="display: none;" controls autoplay>
     <source src=music.mp3 type=audio/mpeg>
   </audio>
   <div id=app></div>
+
   <script src=assets/vendor/jquery.appear/jquery.appear.min.js></script>
   <script src=assets/vendor/jquery.easing/jquery.easing.min.js></script>
   <script src=assets/vendor/jquery-cookie/jquery-cookie.min.js></script>
@@ -67,6 +70,10 @@
   <script src=assets/js/theme.init.js></script>
   <script src=js/chunk-vendors.f908c17b.js></script>
   <script src=js/app.b2effb85.js></script>
+    <script> var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome){
+      $('#iframeAudio').remove()
+    }</script>
 </body>
 
 </html>
