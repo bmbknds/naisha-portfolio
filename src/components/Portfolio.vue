@@ -74,7 +74,7 @@
         </header>
         <div role="main" class="main">
 
-            <section id="about-me" class="section section-no-border section-parallax custom-section-padding-1 custom-position-1 custom-xs-bg-size-cover m-none" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="https://scontent.fhan5-5.fna.fbcdn.net/v/t1.0-9/13726629_378618865831021_6801776781224046837_n.jpg?_nc_cat=0&oh=331785e5c639821e3583ae494f986596&oe=5BA8631F">
+            <section id="about-me" class="section section-no-border section-parallax custom-section-padding-1 custom-position-1 custom-xs-bg-size-cover m-none" data-plugin-parallax data-plugin-options="{'speed': 1.5}" data-image-src="http://www.portotheme.com/wordpress/porto/resume/wp-content/uploads/sites/73/2017/02/contact-bg-1.jpg?id=50">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4 col-sm-4 col-xs-10 col-sm-offset-0 col-xs-offset-1 custom-sm-margin-bottom-1">
