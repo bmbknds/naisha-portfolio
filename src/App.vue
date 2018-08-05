@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <iframe src=music.mp3 allow="autoplay" style="display:none" id="iframeAudio"></iframe>
     <Portfolio></Portfolio>
     <!-- <img src="./assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/> -->
